@@ -3,6 +3,9 @@
 *.class
 *java#
 *.settings
+.idea/
+*.iml
+*.iws
 local.properties
 .arc/
 bin/
