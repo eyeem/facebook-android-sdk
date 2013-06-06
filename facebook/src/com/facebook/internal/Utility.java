@@ -151,7 +151,14 @@ public final class Utility {
         }
     }
 
+   public static String sApplicationId;
+   public static void setMetadataApplicationId(String applicationId) {
+      sApplicationId = applicationId;
+   }
+
     public static String getMetadataApplicationId(Context context) {
+       if (sApplicationId != null)
+          return sApplicationId;
         try {
             ApplicationInfo ai = context.getPackageManager().getApplicationInfo(
                     context.getPackageName(), PackageManager.GET_META_DATA);
