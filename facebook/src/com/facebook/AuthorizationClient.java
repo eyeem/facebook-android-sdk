@@ -641,7 +641,10 @@ class AuthorizationClient implements Serializable {
             // Handle stuff
             Result outcome = null;
 
-            if (resultCode == Activity.RESULT_CANCELED) {
+            if (data == null) {
+                // This happens if the user presses 'Back'.
+                outcome = Result.createCancelResult("Operation canceled");
+            } else if (resultCode == Activity.RESULT_CANCELED) {
                 outcome = Result.createCancelResult(data.getStringExtra("error"));
             } else if (resultCode != Activity.RESULT_OK) {
                 outcome = Result.createErrorResult("Unexpected resultCode from authorization.", null);
