@@ -692,7 +692,7 @@ public class Session implements Serializable {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             try {
                 new ObjectOutputStream(outputStream).writeObject(session);
-            } catch (IOException e) {
+            } catch (Throwable e) {
                 throw new FacebookException("Unable to save session.", e);
             }
             bundle.putByteArray(SESSION_BUNDLE_SAVE_KEY, outputStream.toByteArray());
